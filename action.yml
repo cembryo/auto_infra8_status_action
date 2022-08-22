@@ -1,0 +1,16 @@
+# action.yml
+name: 'Infra8 Status Action'
+description: 'Action to check status of PR'
+inputs:
+  token-github:  # id of input
+    description: 'github token'
+    required: true
+    default: 'World'
+outputs:
+  scope_check_output: # id of output
+    description: 'Status result'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.token-github }}
